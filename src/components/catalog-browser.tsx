@@ -6,15 +6,26 @@ import { CardArt } from './card-art';
 
 interface Props {
   sets: Expansion[];
+  initialSet?: string;
+  hideSetFilter?: boolean;
   owned: string[];
   wishlist: string[];
   ids?: string[];
   picking?: boolean;
   onSelect: (card: CardBrief) => void;
 }
-export function CatalogBrowser({ sets, owned, wishlist, ids, picking, onSelect }: Props) {
+export function CatalogBrowser({
+  sets,
+  initialSet = '',
+  hideSetFilter = false,
+  owned,
+  wishlist,
+  ids,
+  picking,
+  onSelect,
+}: Props) {
   const [q, setQ] = useState('');
-  const [set, setSet] = useState('');
+  const [set, setSet] = useState(initialSet);
   const [promo, setPromo] = useState(false);
   const [page, setPage] = useState(1);
   const [result, setResult] = useState<{ cards: CardBrief[]; total: number; pages: number }>({
@@ -72,22 +83,24 @@ export function CatalogBrowser({ sets, owned, wishlist, ids, picking, onSelect }
             }}
           />
         </label>
-        <select
-          aria-label="Filtrar por expansión"
-          value={set}
-          onChange={(event) => {
-            setSet(event.target.value);
-            setPage(1);
-          }}
-        >
-          <option value="">Todas las expansiones</option>
-          {sets.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.name} · {item.id}
-              {item.available === 0 ? ' · Pendiente de importar' : ''}
-            </option>
-          ))}
-        </select>
+        {!hideSetFilter && (
+          <select
+            aria-label="Filtrar por expansión"
+            value={set}
+            onChange={(event) => {
+              setSet(event.target.value);
+              setPage(1);
+            }}
+          >
+            <option value="">Todas las expansiones</option>
+            {sets.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name} · {item.id}
+                {item.available === 0 ? ' · Pendiente de importar' : ''}
+              </option>
+            ))}
+          </select>
+        )}
         <label className="check-filter">
           <input
             type="checkbox"

@@ -58,3 +58,17 @@ CORS en el proveedor. La opacidad se controla en `.holo-shine` de `binder.css`.
 El reflejo permanece suave en pantallas táctiles, sin capturar gestos de desplazamiento.
 Se desactiva con el botón de la ficha o con `prefers-reduced-motion`.
 Es una interpretación visual, no una máscara exacta del acabado físico de cada impresión.
+
+## Navegación de expansiones
+
+La vista «Expansiones» agrupa las 145 colecciones existentes por `series`, sin duplicar
+ni mover cartas. `ExpansionExplorer` muestra primero las series, después sus expansiones
+y por último reutiliza `CatalogBrowser` con el ID de expansión seleccionado.
+La búsqueda global sigue disponible desde «Buscar cartas»; el selector original se
+mantiene también al añadir cartas al binder.
+
+Los logotipos de Megaevolución, Escarlata y Púrpura y Espada y Escudo proceden del
+índice de series español de TCGdex. Las demás tarjetas muestran el nombre de la serie
+hasta contar con un logotipo verificado. Los años se derivan de las fechas de las
+expansiones del catálogo. Una expansión con `available: 0` sigue visible y se marca
+como pendiente de importar.

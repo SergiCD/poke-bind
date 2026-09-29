@@ -27,6 +27,7 @@ import { BinderView } from './binder-view';
 import { BinderEditor } from './binder-editor';
 import { Modal } from './modal';
 import { CatalogBrowser } from './catalog-browser';
+import { ExpansionExplorer } from './expansion-explorer';
 import { CardDetailModal } from './card-detail';
 import { AccountModal } from './account-modal';
 
@@ -42,7 +43,7 @@ type Coverage = {
 const navigation = [
   { id: 'binders', label: 'Mis binders', icon: BookOpen },
   { id: 'collection', label: 'Mi colección', icon: Layers },
-  { id: 'catalog', label: 'Explorar cartas', icon: Library },
+  { id: 'catalog', label: 'Expansiones', icon: Library },
   { id: 'wishlist', label: 'Mis deseos', icon: Heart },
 ] as const;
 
@@ -271,7 +272,7 @@ export function PokeBind({
                 {view === 'binders'
                   ? 'Organiza, completa y disfruta. Carta a carta.'
                   : view === 'catalog'
-                    ? 'Encuentra la próxima pieza de tu colección.'
+                    ? 'Elige una serie y luego la expansión.'
                     : view === 'wishlist'
                       ? 'Esas cartas que algún día serán tuyas.'
                       : 'Cada carta conseguida, un pequeño tesoro.'}
@@ -391,20 +392,29 @@ export function PokeBind({
             )
           ) : (
             <>
-              <CatalogBrowser
-                key={view}
-                sets={sets}
-                owned={workspace.owned}
-                wishlist={workspace.wishlist}
-                ids={
-                  view === 'collection'
-                    ? workspace.owned
-                    : view === 'wishlist'
-                      ? workspace.wishlist
-                      : undefined
-                }
-                onSelect={(card) => setDetail({ card })}
-              />
+              {view === 'catalog' ? (
+                <ExpansionExplorer
+                  sets={sets}
+                  owned={workspace.owned}
+                  wishlist={workspace.wishlist}
+                  onSelect={(card) => setDetail({ card })}
+                />
+              ) : (
+                <CatalogBrowser
+                  key={view}
+                  sets={sets}
+                  owned={workspace.owned}
+                  wishlist={workspace.wishlist}
+                  ids={
+                    view === 'collection'
+                      ? workspace.owned
+                      : view === 'wishlist'
+                        ? workspace.wishlist
+                        : undefined
+                  }
+                  onSelect={(card) => setDetail({ card })}
+                />
+              )}
               {view === 'catalog' && (
                 <button className="catalog-coverage text-button" onClick={() => setAbout(true)}>
                   <CircleHelp size={15} />

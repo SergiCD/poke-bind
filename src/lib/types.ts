@@ -29,6 +29,7 @@ export interface Expansion {
   id: string;
   name: string;
   logo?: string;
+  coverImage?: string;
   series: string;
   releaseDate?: string;
   total: number;

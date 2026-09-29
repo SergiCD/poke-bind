@@ -114,6 +114,20 @@
   object-fit: contain;
   filter: drop-shadow(0 3px 2px #34442d32);
 }
+.expansion-tile-art .expansion-cover-card {
+  inset: 5px 0 auto auto;
+  width: 76px;
+  height: 106px;
+  object-fit: cover;
+  transform: rotate(7deg);
+  border-radius: 5px;
+  box-shadow: 0 5px 14px #23384645;
+}
+.expansion-tile-art:has(.expansion-cover-card) > span {
+  max-width: calc(100% - 78px);
+  margin-right: auto;
+  font-size: 19px;
+}
 .tone-1 {
   background: linear-gradient(130deg, #f5e5f1, #e2e9ff 55%, #dff9f1);
 }

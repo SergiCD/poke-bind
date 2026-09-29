@@ -127,13 +127,26 @@ export function ExpansionExplorer({
               <button className="expansion-tile" key={item.id} onClick={() => setSetId(item.id)}>
                 <span className={`expansion-tile-art tone-${index % 6}`}>
                   <span aria-hidden="true">{item.name}</span>
-                  {item.logo && (
+                  {(item.logo || item.coverImage) && (
                     <img
-                      src={`${item.logo}.png`}
+                      className={item.logo ? 'expansion-logo' : 'expansion-cover-card'}
+                      src={item.logo
+                        ? (/\.(png|webp|jpe?g)$/i.test(item.logo) ? item.logo : `${item.logo}.png`)
+                        : (item.coverImage && /\.(png|webp|jpe?g)$/i.test(item.coverImage)
+                            ? item.coverImage
+                            : `${item.coverImage}/low.webp`)}
                       alt=""
                       loading="lazy"
                       onError={(event) => {
-                        event.currentTarget.style.display = 'none';
+                        const image = event.currentTarget;
+                        if (item.coverImage && !image.classList.contains('expansion-cover-card')) {
+                          image.className = 'expansion-cover-card';
+                          image.src = /\.(png|webp|jpe?g)$/i.test(item.coverImage)
+                            ? item.coverImage
+                            : `${item.coverImage}/low.webp`;
+                        } else {
+                          image.style.display = 'none';
+                        }
                       }}
                     />
                   )}

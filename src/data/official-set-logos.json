@@ -1,0 +1,29 @@
+{
+  "source": "https://tcg.pokemon.com/es-es/all-expansions/",
+  "verifiedAt": "2026-09-29",
+  "logos": {
+    "30th": "https://d1i787aglh9bmb.cloudfront.net/assets/img/me-expansions/thirty/logo/es-es/Logo-30th.png",
+    "me05": "https://d1i787aglh9bmb.cloudfront.net/assets/img/me-expansions/me05/logo/es-es/me05-logo.png",
+    "me04": "https://d1i787aglh9bmb.cloudfront.net/assets/img/me-expansions/me04/logo/es-es/me04-logo.png",
+    "me03": "https://d1i787aglh9bmb.cloudfront.net/assets/img/me-expansions/me03/logo/es-es/me03-logo.png",
+    "me02.5": "https://d1i787aglh9bmb.cloudfront.net/assets/img/me-expansions/me2dot5/logo/es-es/me2dot5-logo.png",
+    "me02": "https://d1i787aglh9bmb.cloudfront.net/assets/img/me-expansions/me02/logo/es-es/me02-logo.png",
+    "me01": "https://d1i787aglh9bmb.cloudfront.net/assets/img/me-expansions/me01/logo/es-es/me01-logo.png",
+    "sv10.5b": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv10dot5/logos/black-bolt/es-es/zsv10pt5-logo.png",
+    "sv10.5w": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv10dot5/logos/white-flare/es-es/rsv10pt5-logo.png",
+    "sv10": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv10/logo/es-es/sv10-logo.png",
+    "sv09": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv09/logo/es-es/sv9-logo.png",
+    "sv08.5": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv8dot5/logo/es-es/sv8pt5-logo.png",
+    "sv08": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv08/logo/es-es/sv8-logo.png",
+    "sv07": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv07/logo/es-es/sv7-logo.png",
+    "sv06.5": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv6dot5/logo/es-es/sv6pt5-logo.png",
+    "sv06": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv06/logo/es-es/sv6-logo.png",
+    "sv05": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv05/logo/es-es/sv5-logo.png",
+    "sv04.5": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv4dot5/logo/es-es/sv04pt5-logo.png",
+    "sv04": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv04/logo/es-es/sv04-logo-cmyk.png",
+    "sv03.5": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv3dot5/logo/es-es/logo.png",
+    "sv03": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv03/logo/es-es/sv03-header-logo.png",
+    "sv02": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv02/logo/es-es/sv02-header-logo.png",
+    "sv01": "https://d1i787aglh9bmb.cloudfront.net/assets/img/sv-expansions/sv01/logo/es-es/sv01-logo.png"
+  }
+}

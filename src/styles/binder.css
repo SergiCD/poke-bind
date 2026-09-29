@@ -290,26 +290,60 @@
   display: flex;
   z-index: 2;
 }
+/* Reuse the artwork as the foil color layer: reflections follow its actual
+   colors and detail, without canvas/CORS reads or an extra image service. */
 .holo-shine {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    125deg,
-    transparent 15%,
-    #a5eeff88 30%,
-    #f8cef188 40%,
-    #f7e79d88 50%,
+  background-image: var(--card-image);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.35) contrast(1.08);
+  mix-blend-mode: color-dodge;
+  mask-image: radial-gradient(
+    ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%),
+    #000 0%,
+    #0008 24%,
     transparent 65%
   );
-  background-size: 300% 300%;
-  background-position: var(--pointer-x) var(--pointer-y);
-  mix-blend-mode: color-dodge;
-  opacity: 0;
-  transition: opacity 0.3s;
+  opacity: 0.18;
+  transition: opacity 0.25s;
 }
-.holo:hover .holo-shine {
-  opacity: 0.5;
+.holo-shine::before,
+.holo-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+/* Fine metallic grooves and irregular grain avoid a flat rainbow overlay. */
+.holo-shine::before {
+  background-image:
+    url('/textures/foil-grain.svg'),
+    repeating-linear-gradient(118deg, #fff8 0 0.5px, #0008 1px 2px, transparent 3px 5px);
+  background-size:
+    128px 128px,
+    100% 100%;
+  mix-blend-mode: soft-light;
+  opacity: 0.65;
+}
+.holo-shine::after {
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    #c1efff66 40%,
+    #fff8 47%,
+    #ffe5bc55 54%,
+    transparent 68%
+  );
+  background-size: 220% 220%;
+  background-position: var(--pointer-x, 38%) var(--pointer-y, 32%);
+  mix-blend-mode: soft-light;
+}
+.holo:hover .holo-shine,
+.holo:active .holo-shine {
+  opacity: 0.36;
 }
 .binder-spine {
   position: absolute;

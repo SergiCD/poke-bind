@@ -13,31 +13,41 @@ export function CardArt({
   holo?: boolean;
   large?: boolean;
 }) {
-  const [failed, setFailed] = useState(false);
-  const [position, setPosition] = useState({ x: 50, y: 50 });
+  const [failedSource, setFailedSource] = useState<string>();
+  const source =
+    image &&
+    (/\.(png|webp|jpe?g)$/i.test(image) ? image : `${image}/${large ? 'high' : 'low'}.webp`);
+  const failed = !!source && failedSource === source;
   return (
     <div
       className={`card-art ${holo ? 'holo' : ''}`}
-      style={{ '--pointer-x': `${position.x}%`, '--pointer-y': `${position.y}%` } as CSSProperties}
+      style={{ '--card-image': source ? `url("${source}")` : undefined } as CSSProperties}
       onPointerMove={(event) => {
         if (!holo) return;
         const rect = event.currentTarget.getBoundingClientRect();
-        setPosition({
-          x: ((event.clientX - rect.left) / rect.width) * 100,
-          y: ((event.clientY - rect.top) / rect.height) * 100,
-        });
+        // Update only the light, avoiding a React render for every pointer movement.
+        event.currentTarget.style.setProperty(
+          '--pointer-x',
+          `${((event.clientX - rect.left) / rect.width) * 100}%`,
+        );
+        event.currentTarget.style.setProperty(
+          '--pointer-y',
+          `${((event.clientY - rect.top) / rect.height) * 100}%`,
+        );
+      }}
+      onPointerLeave={(event) => {
+        event.currentTarget.style.removeProperty('--pointer-x');
+        event.currentTarget.style.removeProperty('--pointer-y');
       }}
     >
       {image && !failed ? (
         <img
-          src={
-            /\.(png|webp|jpe?g)$/i.test(image) ? image : `${image}/${large ? 'high' : 'low'}.webp`
-          }
+          src={source}
           alt={name}
           loading={large ? 'eager' : 'lazy'}
           width={600}
           height={825}
-          onError={() => setFailed(true)}
+          onError={() => setFailedSource(source)}
           draggable={false}
         />
       ) : (

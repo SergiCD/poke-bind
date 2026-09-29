@@ -1,0 +1,5 @@
+node_modules
+.next
+src/data/catalog.json
+package-lock.json
+next-env.d.ts

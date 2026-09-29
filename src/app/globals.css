@@ -1,0 +1,6 @@
+/* Keep this order: shared primitives, layout, components, responsive overrides. */
+@import '../styles/foundation.css';
+@import '../styles/workspace.css';
+@import '../styles/binder.css';
+@import '../styles/dialogs-and-catalog.css';
+@import '../styles/responsive.css';

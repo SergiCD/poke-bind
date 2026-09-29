@@ -1,0 +1,20 @@
+{
+  "source": "https://www.pokemon.com/es/jcc-pokemon/expansiones-de-cartas-coleccionables",
+  "verifiedAt": "2026-09-28",
+  "cards": [
+    {
+      "id": "sv03.5-166",
+      "name": "Bulbasaur",
+      "image": "https://assets.pokemon.com/static-assets/content-assets/cms2-es-es/img/cards/web/SV3PT5/SV3PT5_ES_166.png",
+      "sourceUrl": "https://www.pokemon.com/es/jcc-pokemon/cartas-pokemon/series/sv3pt5/166",
+      "hp": 70,
+      "stage": "Básico",
+      "illustrator": "Yoriyuki Ikegami",
+      "rarity": "Rara Ilustración",
+      "types": ["Planta"],
+      "attacks": [
+        { "name": "Drenadoras", "damage": 20, "effect": "Cura 20 puntos de daño a este Pokémon." }
+      ]
+    }
+  ]
+}

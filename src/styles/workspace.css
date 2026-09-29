@@ -1,0 +1,345 @@
+/* Workspace styles. Imported in this order by app/globals.css. */
+.app-shell {
+  min-height: 100vh;
+}
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 246px;
+  background: #fff;
+  border-right: 1px solid var(--line);
+  padding: 33px 23px 18px;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: #274b45;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  margin: 0 8px 47px;
+}
+.brand-light {
+  font-weight: 500;
+}
+.brand small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.3px;
+  font-size: 8px;
+  font-weight: 600;
+  color: #859b94;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+.brand-icon {
+  position: relative;
+  width: 40px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: var(--teal);
+  border-radius: 12px;
+  box-shadow: 0 5px 0 #d9f2e8;
+  transform: rotate(-7deg);
+}
+.brand-icon i {
+  position: absolute;
+  right: -3px;
+  top: 1px;
+  width: 10px;
+  height: 10px;
+  background: #efc867;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.sidebar-label {
+  font-size: 10px;
+  letter-spacing: 1.35px;
+  font-weight: 700;
+  color: #8a9a94;
+  margin: 0 11px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar nav {
+  display: grid;
+  gap: 7px;
+}
+.nav-link {
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 15px;
+  border-radius: 11px;
+  text-align: left;
+  color: #6f817b;
+  font-size: 14px;
+  font-weight: 550;
+  min-height: 49px;
+}
+.nav-link:hover {
+  background: #f4faf6;
+}
+.nav-link.active {
+  background: #e5f6ee;
+  color: #177e65;
+  font-weight: 700;
+}
+.nav-link.active svg {
+  fill: #139f8010;
+}
+.nav-link small {
+  margin-left: auto;
+  background: #f5dae6;
+  color: #ac5477;
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+.sidebar-albums {
+  border-top: 1px solid var(--line);
+  margin-top: 26px;
+  padding-top: 16px;
+  overflow: auto;
+}
+.sidebar-albums .sidebar-label {
+  margin-bottom: 7px;
+}
+.album-link {
+  font-size: 13px;
+  display: flex;
+  gap: 11px;
+  padding: 11px 14px;
+  background: none;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  color: #6c8279;
+  overflow-wrap: anywhere;
+  border-radius: 9px;
+}
+.album-link.current {
+  color: #32594a;
+  background: #f7faf8;
+}
+.album-dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 3px;
+  background: var(--cover);
+  flex-shrink: 0;
+}
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 25px;
+}
+.little-note {
+  padding: 21px 17px;
+  border-radius: 14px;
+  background: #f2f8ed;
+  position: relative;
+  color: #638552;
+}
+.little-note > svg {
+  color: #93ad6b;
+  margin-bottom: 11px;
+}
+.little-note strong {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  display: block;
+  color: #4b6543;
+}
+.little-note p {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 9px 0;
+}
+.little-note .text-button {
+  font-size: 12px;
+  color: #64834e;
+}
+.profile-button {
+  margin-top: 24px;
+  padding: 13px 2px 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  background: none;
+  text-align: left;
+}
+.profile-button > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.profile-button strong {
+  font-size: 12px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.profile-button small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f9edcc;
+  display: grid;
+  place-items: center;
+  color: #99823e;
+  flex-shrink: 0;
+  border: 3px solid white;
+}
+.avatar.small {
+  height: 34px;
+  width: 34px;
+  border: 0;
+}
+.main-shell {
+  margin-left: 246px;
+}
+.topbar {
+  height: 77px;
+  border-bottom: 1px solid var(--line);
+  padding: 0 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffffa6;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #83948e;
+}
+.breadcrumb strong {
+  font-weight: 500;
+  color: #4b655c;
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.language {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #667f74;
+}
+.language > span {
+  height: 10px;
+  width: 15px;
+  background: linear-gradient(#d27c6b 25%, #f3d675 25% 75%, #d27c6b 75%);
+  border-radius: 2px;
+}
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  color: #7c9288;
+}
+.icon-button:hover:not(:disabled) {
+  background: #eaf3ee;
+}
+.main-shell main {
+  max-width: 1440px;
+  margin: auto;
+  padding: 35px 42px 18px;
+}
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  color: #6b9182;
+  letter-spacing: 1.7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.tiny-sparkle {
+  font-size: 17px;
+  color: #d6b669;
+}
+.page-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+.button {
+  padding: 11px 16px;
+  min-height: 42px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 650;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.primary {
+  color: white;
+  background: var(--teal);
+  box-shadow:
+    0 3px 0 #0a837623,
+    0 4px 12px #11988a16;
+}
+.primary:hover:not(:disabled) {
+  background: var(--teal-dark);
+}
+.secondary {
+  background: white;
+  border: 1px solid #e0eae5;
+  color: #5d756b;
+  box-shadow: 0 2px 3px #37583d03;
+}
+.secondary:hover:not(:disabled) {
+  background: #f0f8f4;
+  border-color: #a7cebb;
+}
+.secondary.is-active {
+  background: #e2f2e9;
+  color: #25724f;
+}
+.text-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  padding: 5px 0;
+  font-size: 13px;
+  color: #567e69;
+  font-weight: 600;
+}

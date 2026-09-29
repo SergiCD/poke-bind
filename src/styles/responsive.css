@@ -1,0 +1,745 @@
+/* Responsive styles. Imported in this order by app/globals.css. */
+@media (min-width: 1550px) {
+  .main-shell main {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  .binder-book {
+    max-width: 1000px;
+  }
+  .main-shell main {
+    padding-top: 42px;
+  }
+  .page-heading {
+    margin-bottom: 40px;
+  }
+  .page-caption {
+    font-size: 10px;
+  }
+  .empty-inner > span {
+    font-size: 10px;
+  }
+}
+@media (max-width: 1150px) {
+  .sidebar {
+    width: 215px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .main-shell {
+    margin-left: 215px;
+  }
+  .brand {
+    font-size: 23px;
+    gap: 8px;
+  }
+  .brand small {
+    font-size: 7px;
+  }
+  .sidebar-label {
+    font-size: 9px;
+  }
+  .main-shell main {
+    padding: 28px 25px 18px;
+  }
+  .topbar {
+    padding: 0 25px;
+  }
+  .page-heading {
+    margin-bottom: 28px;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .catalog-filters {
+    flex-wrap: wrap;
+  }
+  .catalog-filters select {
+    width: 200px;
+  }
+  .binder-stage {
+    padding: 0;
+  }
+  .binder-book {
+    padding: 12px;
+    gap: 24px;
+  }
+  .binder-page {
+    padding: 10px 9px 12px;
+  }
+  .pockets {
+    gap: 6px;
+  }
+  .binder-title h2 {
+    font-size: 17px;
+  }
+  .binder-name-row .pill {
+    display: none;
+  }
+  .binder-title p {
+    font-size: 11px;
+  }
+  .binder-tools .button {
+    padding: 8px;
+    font-size: 11px;
+  }
+  .toast {
+    left: calc(50% + 107px);
+  }
+}
+@media (max-width: 950px) {
+  .sidebar {
+    width: 185px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .brand {
+    font-size: 20px;
+    margin-bottom: 35px;
+  }
+  .brand-icon {
+    width: 32px;
+    height: 37px;
+  }
+  .brand small {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  .main-shell {
+    margin-left: 185px;
+  }
+  .sidebar-label {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .nav-link {
+    font-size: 12px;
+    padding: 13px 12px;
+  }
+  .little-note {
+    padding: 16px 12px;
+  }
+  .little-note strong {
+    font-size: 14px;
+  }
+  .profile-button strong {
+    font-size: 10px;
+  }
+  .profile-button small {
+    font-size: 10px;
+  }
+  .main-shell main {
+    padding: 25px 20px;
+  }
+  .topbar {
+    padding: 0 20px;
+  }
+  .page-heading .button {
+    font-size: 11px;
+    padding: 10px;
+  }
+  .binder-header {
+    align-items: flex-start;
+  }
+  .binder-tools .button > span {
+    display: none;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .pocket {
+    padding: 3px;
+  }
+  .page-caption {
+    font-size: 7px;
+  }
+  .binder-tip {
+    font-size: 10px;
+  }
+  .add-page {
+    font-size: 10px;
+  }
+  .toast {
+    left: calc(50% + 92px);
+  }
+}
+@media (max-width: 760px) {
+  .sidebar {
+    display: none;
+  }
+  .main-shell {
+    margin-left: 0;
+  }
+  .topbar {
+    height: 62px;
+    padding: 0 20px;
+  }
+  .breadcrumb {
+    gap: 7px;
+    font-size: 12px;
+  }
+  .breadcrumb strong {
+    max-width: 135px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .topbar-actions {
+    gap: 12px;
+  }
+  .language {
+    display: none;
+  }
+  .main-shell main {
+    padding: 28px 20px 100px;
+  }
+  .page-heading {
+    align-items: flex-start;
+    margin-bottom: 30px;
+    gap: 12px;
+  }
+  .page-heading h1 {
+    font-size: 27px;
+    letter-spacing: -1px;
+    max-width: 235px;
+    line-height: 1.25;
+  }
+  .page-heading p {
+    font-size: 12px;
+    max-width: 245px;
+    margin-top: 10px;
+  }
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+  .page-heading > .button {
+    font-size: 0;
+    border-radius: 13px;
+    width: 43px;
+    min-width: 43px;
+    height: 43px;
+    padding: 0;
+    margin-top: 27px;
+    gap: 0;
+  }
+  .page-heading > .button svg {
+    width: 22px;
+    height: 22px;
+  }
+  .page-heading > .button::after {
+    content: 'Nuevo binder';
+    font-size: 10px;
+    position: absolute;
+    margin-top: 68px;
+    color: #588772;
+    white-space: nowrap;
+  }
+  .binder-header {
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 15px;
+  }
+  .binder-title h2 {
+    font-size: 18px;
+  }
+  .binder-title-icon {
+    height: 42px;
+    width: 42px;
+  }
+  .binder-title p {
+    font-size: 11px;
+  }
+  .binder-title {
+    gap: 10px;
+    max-width: 100%;
+  }
+  .binder-name-row h2 {
+    overflow-wrap: anywhere;
+  }
+  .binder-tools {
+    margin-left: auto;
+  }
+  .binder-tools .button {
+    font-size: 11px;
+    padding: 8px 10px;
+    min-height: 34px;
+  }
+  .binder-tools .button > span {
+    display: inline;
+  }
+  .collection-strip {
+    margin-bottom: 19px;
+    padding: 9px 11px;
+    gap: 8px;
+    font-size: 10px;
+  }
+  .collection-strip strong {
+    font-size: 11px;
+  }
+  .free-pockets {
+    font-size: 10px;
+  }
+  .progress-track {
+    min-width: 24px;
+  }
+  .binder-book {
+    grid-template-columns: 1fr;
+    padding: 14px 13px 17px;
+    gap: 0;
+    border-radius: 14px;
+    max-width: 480px;
+    box-shadow:
+      0 3px 0 var(--edge),
+      0 6px 0 #c2d6ca,
+      0 15px 25px #385b4220;
+  }
+  .binder-page {
+    padding: 13px 11px 16px;
+    box-shadow: 0 3px 0 #bdd3c2;
+  }
+  .page-caption {
+    font-size: 8px;
+    margin-bottom: 13px;
+  }
+  .pockets {
+    gap: 8px;
+  }
+  .pocket {
+    padding: 4px;
+  }
+  .empty-inner > span {
+    font-size: 9px;
+  }
+  .binder-pagination {
+    margin-top: 24px;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .add-page {
+    position: static;
+    flex-basis: 100%;
+    justify-content: center;
+    margin-top: 3px;
+    font-size: 12px;
+  }
+  .binder-tip {
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 300px;
+    margin: 15px auto 25px;
+  }
+  .binder-tip svg {
+    display: none;
+  }
+  .workspace-footer {
+    font-size: 9px;
+    gap: 15px;
+  }
+  .workspace-footer > div {
+    gap: 8px;
+  }
+  .workspace-footer button {
+    font-size: 9px;
+    gap: 4px;
+  }
+  .workspace-footer > span {
+    max-width: 180px;
+    line-height: 1.4;
+  }
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffffed;
+    backdrop-filter: blur(16px);
+    z-index: 30;
+    border-top: 1px solid var(--line);
+    justify-content: space-around;
+    padding: 10px 8px max(13px, env(safe-area-inset-bottom));
+  }
+  .mobile-nav button {
+    background: transparent;
+    color: #93a499;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    font-size: 9px;
+    min-width: 65px;
+    border-radius: 12px;
+  }
+  .mobile-nav button.active {
+    color: #1a977a;
+  }
+  .mobile-nav button.active svg {
+    fill: #dcf1e6;
+  }
+  .modal {
+    padding: 20px;
+    max-height: 89dvh;
+    border-radius: 18px;
+  }
+  .modal-header h2 {
+    font-size: 17px;
+  }
+  .modal-wide {
+    width: calc(100% - 20px);
+  }
+  .catalog-filters {
+    gap: 10px;
+  }
+  .search-field {
+    flex-basis: 100%;
+  }
+  .catalog-filters select {
+    flex: 1;
+    font-size: 12px;
+    width: 180px;
+  }
+  .check-filter {
+    font-size: 11px;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px 11px;
+  }
+  .catalog-card strong {
+    font-size: 12px;
+  }
+  .catalog-card > span {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+  .catalog-art {
+    padding: 4px;
+  }
+  .card-detail {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 3px 10px;
+  }
+  .detail-art {
+    width: 80%;
+    max-width: 280px;
+    justify-self: center;
+  }
+  .detail-info {
+    padding: 0;
+  }
+  .detail-info h2 {
+    font-size: 29px;
+  }
+  .detail-actions .button {
+    min-height: 46px;
+  }
+  .toast {
+    left: 50%;
+    bottom: 90px;
+    min-width: 280px;
+    max-width: calc(100% - 30px);
+  }
+  .source-note {
+    font-size: 11px;
+  }
+  .single-page {
+    max-width: 480px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+  .holo-shine {
+    display: none;
+  }
+}
+
+/* Keep navigation and form labels readable, including on narrow phones. */
+.reset-page {
+  max-width: 460px;
+  margin: 10vh auto;
+  padding: 24px;
+}
+.reset-page > p:last-child {
+  margin-top: 25px;
+}
+.mobile-binder-select {
+  display: none;
+}
+.nav-link,
+.button,
+.text-button,
+.binder-tools .button {
+  font-size: 14px;
+}
+.sidebar-label,
+.brand small,
+.page-caption,
+.pill,
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.brand small {
+  font-size: 9px;
+  letter-spacing: 0.6px;
+}
+.sidebar-label {
+  font-size: 10px;
+}
+.album-link,
+.binder-title p,
+.collection-strip,
+.collection-strip strong,
+.results-label,
+.binder-pagination,
+.breadcrumb {
+  font-size: 13px;
+}
+.binder-tip,
+.workspace-footer,
+.workspace-footer button,
+.source-note,
+.catalog-card > span,
+.page-heading p {
+  font-size: 12px;
+}
+.catalog-card strong,
+.form-stack p,
+.detail-facts,
+.attack,
+.attack p {
+  font-size: 14px;
+}
+.page-caption {
+  font-size: 10px;
+}
+.empty-inner > span {
+  font-size: 11px;
+}
+.profile-button strong {
+  font-size: 13px;
+}
+.profile-button small {
+  font-size: 12px;
+}
+.sidebar-bottom {
+  padding-top: 15px;
+}
+.little-note p {
+  font-size: 13px;
+}
+.detail-art {
+  max-width: 340px;
+  margin: auto;
+}
+.catalog-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.topbar .icon-button {
+  width: 40px;
+  height: 40px;
+}
+@media (max-width: 1150px) {
+  .sidebar .sidebar-label {
+    font-size: 9px;
+  }
+  .sidebar .brand small {
+    font-size: 7px;
+  }
+  .sidebar .nav-link {
+    font-size: 13px;
+  }
+  .binder-tools .button {
+    font-size: 12px;
+  }
+  .binder-title p {
+    font-size: 12px;
+  }
+  .page-caption {
+    font-size: 9px;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+  }
+  .page-heading h1 {
+    font-size: 27px;
+  }
+  .page-heading p {
+    font-size: 14px;
+  }
+  .binder-tools .button {
+    font-size: 13px;
+    min-height: 42px;
+  }
+  .collection-strip,
+  .collection-strip strong,
+  .free-pockets {
+    font-size: 12px;
+  }
+  .strip-divider,
+  .free-pockets {
+    display: none;
+  }
+  .binder-pagination {
+    font-size: 14px;
+  }
+  .binder-pagination .icon-button {
+    height: 40px;
+    width: 40px;
+  }
+  .binder-tip {
+    font-size: 12px;
+  }
+  .page-caption {
+    font-size: 10px;
+  }
+  .mobile-nav button {
+    font-size: 11px;
+    min-height: 48px;
+    padding: 4px 6px;
+  }
+  .workspace-footer,
+  .workspace-footer button {
+    font-size: 11px;
+  }
+  .workspace-footer {
+    align-items: flex-start;
+  }
+  .catalog-card strong {
+    font-size: 13px;
+  }
+  .catalog-card > span {
+    font-size: 11px;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .catalog-filters select,
+  .check-filter {
+    font-size: 13px;
+  }
+  .mobile-binder-select {
+    display: grid;
+    gap: 8px;
+    font-size: 12px;
+    margin-bottom: 22px;
+    color: var(--muted);
+  }
+  .mobile-binder-select select {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: white;
+    padding: 12px;
+    color: var(--ink);
+    width: 100%;
+  }
+  .account-links {
+    flex-wrap: wrap;
+  }
+  .account-links .text-button {
+    font-size: 13px;
+  }
+  .format-option span {
+    font-size: 13px;
+  }
+}
+
+/* Accent colors echo the cheerful, light mobile reference without recoloring card art. */
+:root {
+  --teal: #0ba99b;
+  --teal-dark: #008b81;
+}
+.binder-tools .button:first-child {
+  background: #eaf2fc;
+  border-color: #d7e5f6;
+  color: #5a81af;
+}
+.binder-tools .button:last-child {
+  background: #f0ecfc;
+  border-color: #e6ddf9;
+  color: #8c73b2;
+}
+.binder-tools .button.is-active {
+  background: #e0f4e9;
+  color: #218d6b;
+}
+.color-mint {
+  --cover: #73bbaa;
+  --wash: #e1f3ed;
+  --page: #eaf5ef;
+  --edge: #87c5b3;
+}
+.binder-book.single-page {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 520px;
+}
+@media (max-width: 760px) {
+  .main-shell main {
+    padding-top: 20px;
+  }
+  .page-heading {
+    margin-bottom: 22px;
+  }
+  .page-heading p {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+  .page-heading h1 {
+    font-size: 24px;
+  }
+  .binder-header {
+    gap: 10px;
+  }
+  .page-heading > .button::after {
+    content: none;
+  }
+  .page-heading > .button {
+    font-size: 0;
+  }
+  .page-heading > .button svg {
+    display: block;
+  }
+  .binder-book.single-page {
+    max-width: 480px;
+  }
+}
+
+/* A short desktop window must keep the binder list and account reachable. */
+.sidebar {
+  overflow-y: auto;
+}
+.sidebar nav,
+.sidebar-bottom {
+  flex-shrink: 0;
+}
+.sidebar-albums {
+  min-height: 100px;
+  flex: 1;
+}
+@media (max-height: 720px) and (min-width: 761px) {
+  .sidebar {
+    padding-top: 20px;
+  }
+  .sidebar .brand {
+    margin-bottom: 25px;
+  }
+  .sidebar-albums {
+    margin-top: 18px;
+  }
+}

@@ -341,6 +341,35 @@
   background-position: var(--pointer-x, 38%) var(--pointer-y, 32%);
   mix-blend-mode: soft-light;
 }
+/* Five finishes share the artwork-based color layer, but differ in texture and light. */
+.foil-standard .holo-shine::after {
+  background: repeating-linear-gradient(108deg, transparent 0 17px, #ebf9ff8a 19px 21px, transparent 25px 44px);
+  background-position: var(--pointer-x, 38%) var(--pointer-y, 32%);
+}
+.foil-illustration .holo-shine {
+  filter: saturate(1.65) contrast(1.04);
+  mask-image: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%), #000 0%, #0009 38%, transparent 78%);
+}
+.foil-illustration .holo-shine::after {
+  background: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%), #fff9 0%, #ffbde155 24%, #9ae7ff66 49%, transparent 75%);
+}
+.foil-special .holo-shine::after {
+  background: conic-gradient(from 32deg at var(--pointer-x, 38%) var(--pointer-y, 32%), #ffa9d977, #9ceaff88, #fff4aa88, #c6adff77, #ffa9d977);
+  mask-image: repeating-linear-gradient(138deg, #000 0 9px, #0006 12px 14px, transparent 17px 24px);
+}
+.foil-gold .holo-shine {
+  filter: sepia(.5) saturate(2.1) contrast(1.1);
+}
+.foil-gold .holo-shine::after {
+  background: repeating-linear-gradient(116deg, #44200022 0 3px, #ffdd7699 5px 7px, #fff7cfbb 8px 9px, transparent 13px 24px);
+}
+.foil-prismatic .holo-shine::before {
+  background-image: url('/textures/foil-grain.svg'), radial-gradient(circle, #fff9 1px, transparent 1.5px);
+  background-size: 128px 128px, 7px 7px;
+}
+.foil-prismatic .holo-shine::after {
+  background: conic-gradient(from 0deg at var(--pointer-x, 38%) var(--pointer-y, 32%), #ff8ba777, #ffe29a88, #adf0c588, #94cfff88, #d9a7ff88, #ff8ba777);
+}
 .holo:hover .holo-shine,
 .holo:active .holo-shine {
   opacity: 0.36;

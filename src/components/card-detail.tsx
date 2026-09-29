@@ -4,6 +4,7 @@ import { Check, Heart, Plus, Sparkles, Trash2 } from 'lucide-react';
 import type { CardBrief, CardDetail } from '@/lib/types';
 import { Modal } from './modal';
 import { CardArt } from './card-art';
+import { foilStyleFor } from '@/lib/foil';
 
 export function CardDetailModal({
   card,
@@ -57,6 +58,7 @@ export function CardDetailModal({
             name={card.name}
             large
             holo={holo && !!detail?.variants?.holo}
+            foilStyle={foilStyleFor(detail) ?? 'standard'}
           />
           {detail?.variants?.holo && (
             <button

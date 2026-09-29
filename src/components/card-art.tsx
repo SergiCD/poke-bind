@@ -1,16 +1,19 @@
 'use client';
 import { useState, type CSSProperties } from 'react';
 import { ImageOff } from 'lucide-react';
+import type { FoilStyle } from '@/lib/foil';
 
 export function CardArt({
   image,
   name,
   holo = false,
+  foilStyle = 'standard',
   large = false,
 }: {
   image?: string;
   name: string;
   holo?: boolean;
+  foilStyle?: FoilStyle;
   large?: boolean;
 }) {
   const [failedSource, setFailedSource] = useState<string>();
@@ -20,7 +23,7 @@ export function CardArt({
   const failed = !!source && failedSource === source;
   return (
     <div
-      className={`card-art ${holo ? 'holo' : ''}`}
+      className={`card-art ${holo ? `holo foil-${foilStyle}` : ''}`}
       style={{ '--card-image': source ? `url("${source}")` : undefined } as CSSProperties}
       onPointerMove={(event) => {
         if (!holo) return;

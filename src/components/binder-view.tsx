@@ -4,6 +4,7 @@ import { Check, ChevronLeft, ChevronRight, Grip, Plus, Sparkles } from 'lucide-r
 import type { Binder } from '@/lib/workspace';
 import type { CardBrief, CardDetail } from '@/lib/types';
 import { CardArt } from './card-art';
+import { foilStyleFor } from '@/lib/foil';
 
 interface Props {
   binder: Binder;
@@ -157,6 +158,7 @@ export function BinderView({
                             image={card.image}
                             name={card.name}
                             holo={!!detail?.variants?.holo}
+                            foilStyle={foilStyleFor(detail) ?? 'standard'}
                           />
                           {owned.includes(card.id) && (
                             <span className="owned-mark">

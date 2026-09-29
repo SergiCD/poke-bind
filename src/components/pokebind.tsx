@@ -670,14 +670,14 @@ export function PokeBind({
               {coverage.cards.toLocaleString('es-ES')} cartas · {coverage.sets} colecciones
             </h3>
             <p>
-              Priorizamos las fichas verificadas de Pokémon ({coverage.officialCards} por ahora). El
-              índice de respaldo procede de{' '}
+              Priorizamos las imágenes verificadas de Pokémon ({coverage.officialCards} por ahora).
+              El índice de respaldo procede de{' '}
               <a href="https://tcgdex.dev" target="_blank" rel="noreferrer">
                 TCGdex
               </a>
               . Se está contrastando con las{' '}
               <a
-                href="https://www.pokemon.com/es/jcc-pokemon/expansiones-de-cartas-coleccionables"
+                href="https://tcg.pokemon.com/es-es/all-expansions/"
                 target="_blank"
                 rel="noreferrer"
               >

@@ -41,3 +41,63 @@ El JSON es generado y está excluido de Prettier. Para correcciones oficiales ed
 - Registrar diferencias entre actualizaciones y revisar bajas para no romper binders existentes.
 
 La app no se presenta como un inventario completo ni actualizado automáticamente.
+
+## Colección Clásica del 30.º Aniversario
+
+El 29/09/2026 se incorporaron las 30 imágenes españolas observadas en la
+[galería oficial](https://tcg.pokemon.com/es-es/galleries/30th-celebration/#classic-collection).
+Se relacionan con `30th-c-001`–`030` por el identificador de la galería (`data-track-card-name`)
+y el archivo `2M6P_Classic_ES_1.png`–`30.png`, no por el número de la impresión antigua
+que aparece dentro de algunas cartas (Charizard conserva 4/102).
+Las 30 URLs se comprobaron con respuesta HTTP 200 y contenido de imagen.
+Se conservan en `official-cards.json`, de modo que sincronizar TCGdex no las borra.
+Esta verificación corresponde a las imágenes; los demás metadatos siguen procediendo de TCGdex.
+Los contadores de imágenes se calculan después de aplicar las correcciones oficiales.
+
+## Galerías oficiales y categorías
+
+El índice de partida es [Todas las expansiones](https://tcg.pokemon.com/es-es/all-expansions/),
+complementado por [Todas las galerías](https://tcg.pokemon.com/es-es/all-galleries/).
+Los enlaces se siguen desde el índice y la página de cada expansión. No se traduce el
+nombre español para adivinar un slug: Caos Creciente usa `chaos-rising`, por ejemplo.
+El índice de galerías contiene un enlace erróneo de Fuerzas Temporales a Destinos de
+Paldea; se usa el enlace `temporal-forces` observado en la página de la expansión.
+
+Las galerías tienen dos límites que el importador anterior no cubría:
+
+- El HTML inicial no contiene el listado completo; `gallery.js` carga categorías de un JSON.
+- «Ver todo» despliega la categoría seleccionada. Hay que unir **todas** las categorías,
+  incluidas `special-art` y `classic-collection`, y deduplicar por impresión.
+
+`gallery-parser.mjs` lee `data-expansion`, `data-expansion-id` y
+`data-expansion-asset-path` para resolver la ruta del JSON siguiendo el cargador oficial.
+La Colección Clásica mantiene un ID distinto aunque repita el número de otra colección.
+Si falta una categoría, el idioma no coincide, aparece protección o falta un mapeo,
+la importación falla antes de escribir. No se eliminan cartas que una galería no muestre.
+
+```sh
+# Reconstrucción reproducible desde las observaciones revisadas del navegador:
+npm run catalog:galleries
+# Comprobar cada URL antes de escribir (cuatro peticiones simultáneas):
+npm run catalog:galleries -- --verify-images
+# Intentar actualizar las galerías mapeadas desde HTML y JSON públicos:
+npm run catalog:galleries -- --refresh --verify-images
+# Informe de las 145 colecciones, incluidas las vacías y parciales:
+npm run catalog:audit
+```
+
+Las peticiones HTTP directas a varias galerías devuelven protección. No existe un
+scraper universal desatendido: `--refresh` se detiene si no puede leerlas. El archivo
+`scripts/data/gallery-observations.json` conserva la captura revisada del DOM visible
+tras desplegar «Ver todo» y recorrer los filtros. Los rangos comprimen URLs observadas;
+**no son una enumeración de números supuestos ni una autorización para ampliar el rango**.
+Para añadir una galería, revisa sus enlaces, todas sus categorías y el mapeo a `setId`.
+Las galerías de varias versiones (Fulgor Negro/Llama Blanca) necesitan su propio mapeo;
+el parser rechaza esa estructura hasta que se implemente y verifique.
+
+La auditoría del 29/09 cubre ocho galerías y nueve colecciones, con 1.334 imágenes.
+La galería de 30.º Aniversario muestra 158 cartas principales y 30 clásicas; el respaldo
+contiene además `30th-B`, `30th-G` y `30th-R`, que se conservan sin atribuirles verificación oficial.
+Consulta [el informe completo](auditoria-catalogo.md) para las lagunas históricas y promos.
+Una expansión vacía se identifica como pendiente en la interfaz; no se presenta como
+una búsqueda sin coincidencias ni se rellena con imágenes de otro idioma.

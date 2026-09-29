@@ -26,9 +26,9 @@ Abre `http://localhost:3000`. Sin variables de entorno funciona en **modo local*
 
 ## Estado del catálogo
 
-La fuente prioritaria es [Pokémon oficial](https://www.pokemon.com/es/jcc-pokemon/expansiones-de-cartas-coleccionables). La importación completa **está pendiente**: las peticiones HTTP realizadas durante el desarrollo recibieron una página de bloqueo de Pokémon.
+La fuente prioritaria es [Pokémon oficial](https://tcg.pokemon.com/es-es/all-expansions/). La importación completa **está pendiente**: las peticiones HTTP realizadas durante el desarrollo recibieron una página de bloqueo de Pokémon.
 
-La versión inicial tiene **una ficha oficial verificada**, Bulbasaur 166/165 de 151. El índice de respaldo de TCGdex contiene 145 colecciones, 14.249 cartas y 13.260 imágenes, importadas el 28 de septiembre de 2026. Esto **no demuestra cobertura completa** de todas las cartas españolas históricas o promocionales. La app muestra la procedencia y las limitaciones.
+El catálogo combina 145 colecciones y 14.249 cartas de TCGdex con **1.335 imágenes oficiales**: Bulbasaur 166/165 y 1.334 imágenes verificadas en ocho galerías de Pokémon. Hay 13.290 cartas con URL de imagen. **41 colecciones siguen pendientes de importar sus cartas españolas**; no se presenta cobertura histórica o promocional completa. Consulta el [informe por colección](docs/auditoria-catalogo.md).
 
 Consulta [fuentes y actualización](docs/catalogo.md) antes de cambiar los importadores. No se han inventado rutas de imágenes oficiales para rellenar huecos.
 

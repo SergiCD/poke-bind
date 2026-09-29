@@ -2,7 +2,7 @@
 
 ## Necesario para el primer lanzamiento público
 
-- Completar y cotejar el catálogo oficial español, incluido histórico y promos. Actualmente bloqueado el acceso HTTP automatizado; una sola ficha oficial verificada.
+- Completar y cotejar el catálogo oficial español, incluido histórico y promos. Revisadas ocho galerías: 1.334 imágenes más la ficha de Bulbasaur. Quedan 41 colecciones sin cartas y 14 galerías pendientes de acceso. Véase [auditoría](auditoria-catalogo.md).
 - Configurar Supabase y probar los flujos reales de cuenta y guardado.
 - Conectar Vercel y comprobar producción en dispositivos reales.
 - Revisar cada expansión sin imágenes o con diferencias entre cartas declaradas y disponibles.

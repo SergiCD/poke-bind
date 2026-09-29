@@ -25,6 +25,7 @@ export function CatalogBrowser({ sets, owned, wishlist, ids, picking, onSelect }
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
+  const expansion = sets.find((item) => item.id === set);
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
@@ -83,6 +84,7 @@ export function CatalogBrowser({ sets, owned, wishlist, ids, picking, onSelect }
           {sets.map((item) => (
             <option key={item.id} value={item.id}>
               {item.name} · {item.id}
+              {item.available === 0 ? ' · Pendiente de importar' : ''}
             </option>
           ))}
         </select>
@@ -98,6 +100,14 @@ export function CatalogBrowser({ sets, owned, wishlist, ids, picking, onSelect }
           Solo promos
         </label>
       </div>
+      {expansion &&
+        (expansion.available < expansion.total || expansion.withImage < expansion.available) && (
+          <p className="notice" role="status">
+            {expansion.available === 0
+              ? 'Esta expansión está registrada, pero sus cartas en español aún no están importadas.'
+              : `${expansion.available} cartas catalogadas y ${expansion.withImage} con imagen. La cobertura de esta expansión es parcial.`}
+          </p>
+        )}
       {error ? (
         <div className="empty-state" role="alert">
           <p>{error}</p>
@@ -143,11 +153,17 @@ export function CatalogBrowser({ sets, owned, wishlist, ids, picking, onSelect }
           {!loading && !result.cards.length && (
             <div className="empty-state">
               <Search size={30} />
-              <h3>No hay cartas por aquí… todavía</h3>
+              <h3>
+                {expansion?.available === 0
+                  ? 'Importación pendiente'
+                  : 'No hay cartas por aquí… todavía'}
+              </h3>
               <p>
-                {ids
-                  ? 'Añade cartas desde el catálogo o desde tu binder.'
-                  : 'Prueba con otro nombre o cambia los filtros.'}
+                {expansion?.available === 0
+                  ? 'No es un problema de tu búsqueda. Todavía falta una fuente española para esta expansión.'
+                  : ids
+                    ? 'Añade cartas desde el catálogo o desde tu binder.'
+                    : 'Prueba con otro nombre o cambia los filtros.'}
               </p>
             </div>
           )}

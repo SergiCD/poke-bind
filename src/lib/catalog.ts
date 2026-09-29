@@ -9,13 +9,22 @@ export const cards: CardBrief[] = snapshot.cards.map((card) => ({
   ...card,
   ...(officialById.get(card.id) ?? {}),
 }));
-export const sets = snapshot.sets as Expansion[];
+// Count after applying official corrections, so expansion badges match the cards shown.
+const imagesBySet = new Map<string, number>();
+for (const card of cards) {
+  if (card.image) imagesBySet.set(card.setId, (imagesBySet.get(card.setId) ?? 0) + 1);
+}
+export const sets: Expansion[] = snapshot.sets.map((set) => ({
+  ...set,
+  withImage: imagesBySet.get(set.id) ?? 0,
+}));
 export const featured: CardDetail[] = snapshot.featured.map((card) => ({
   ...card,
   ...(officialById.get(card.id) ?? {}),
 })) as CardDetail[];
 export const coverage = {
   ...snapshot.coverage,
+  withImage: cards.filter((card) => card.image).length,
   syncedAt: snapshot.syncedAt,
   officialCards: official.cards.length,
 };

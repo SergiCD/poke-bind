@@ -10,7 +10,9 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "catalog:sync": "node scripts/sync-catalog.mjs",
     "catalog:official": "node scripts/import-official.mjs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "catalog:galleries": "node scripts/import-galleries.mjs",
+    "catalog:audit": "node scripts/audit-catalog.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.117.2",

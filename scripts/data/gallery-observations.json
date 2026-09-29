@@ -1,0 +1,93 @@
+{
+  "observedAt": "2026-09-29",
+  "indexUrl": "https://tcg.pokemon.com/es-es/all-expansions/",
+  "method": "Rendered official gallery DOM; Ver todo and every category button. Ranges losslessly compress the image URLs observed, not predicted card counts.",
+  "galleries": [
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/30th-celebration/",
+      "setId": "30th",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/30th-celebration/es-es/2M6P_ES_{number}.png",
+      "ranges": [[1, 158]],
+      "filters": [
+        "seeall",
+        "pokemon-ex",
+        "special-art",
+        "pikachu-rare",
+        "classic-collection",
+        "futuristic-rare"
+      ]
+    },
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/30th-celebration/",
+      "setId": "30th-c",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/30th-celebration/es-es/2M6P_Classic_ES_{number}.png",
+      "ranges": [[1, 30]],
+      "filters": ["classic-collection"]
+    },
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/pitch-black/",
+      "setId": "me05",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/pitch-black/es-es/KD5B_ES_{number}.png",
+      "ranges": [[1, 120]],
+      "filters": ["seeall", "mega-evolution-pokemon", "special-art"]
+    },
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/chaos-rising/",
+      "setId": "me04",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/chaos-rising/es-es/SN54_ES_{number}.png",
+      "ranges": [[1, 122]],
+      "filters": ["seeall", "mega-evolution-pokemon", "special-art"]
+    },
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/perfect-order/",
+      "setId": "me03",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/perfect-order/es-es/P614_ES_{number}.png",
+      "ranges": [[1, 124]],
+      "filters": ["seeall", "mega-evolution-pokemon", "special-art"]
+    },
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/phantasmal-flames/",
+      "setId": "me02",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/phantasmal-flames/es-es/8BXG_ES_{number}.png",
+      "ranges": [[1, 130]],
+      "filters": ["seeall", "mega-evolution-pokemon", "special-art"]
+    },
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/surging-sparks/",
+      "setId": "sv08",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/surging-sparks/es-es/SV08_ES_{number}.png",
+      "ranges": [[1, 252]],
+      "filters": ["seeall", "ace-spec", "special-art", "ex", "hyper-rare"]
+    },
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/temporal-forces/",
+      "setId": "sv05",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/temporal-forces/es-es/SV05_ES_{number}.png",
+      "ranges": [[1, 218]],
+      "filters": ["seeall", "ace-spec", "ancient-future", "special-art", "ex", "hyper-rare"]
+    },
+    {
+      "url": "https://tcg.pokemon.com/es-es/galleries/prismatic-evolutions/",
+      "setId": "sv08.5",
+      "imageTemplate": "https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/es-es/SV8pt5_ES_{number}.png",
+      "ranges": [[1, 180]],
+      "filters": ["seeall", "ace-spec", "special-art", "ex", "hyper-rare"]
+    }
+  ],
+  "pending": [
+    "ascended-heroes",
+    "mega-evolution",
+    "black-white",
+    "destined-rivals",
+    "journey-together",
+    "stellar-crown",
+    "shrouded-fable",
+    "twilight-masquerade",
+    "paldean-fates",
+    "paradox-rift",
+    "151",
+    "obsidian-flames",
+    "paldea-evolved",
+    "scarlet-violet"
+  ]
+}

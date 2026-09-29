@@ -154,7 +154,7 @@ export function CardDetailModal({
           <p className="source-note">
             {card.sourceUrl ? (
               <>
-                Ficha e imagen:{' '}
+                Imagen:{' '}
                 <a href={card.sourceUrl} target="_blank" rel="noreferrer">
                   Pokémon oficial
                 </a>

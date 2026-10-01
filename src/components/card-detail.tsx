@@ -4,7 +4,7 @@ import { Check, Heart, Plus, Sparkles, Trash2 } from 'lucide-react';
 import type { CardBrief, CardDetail } from '@/lib/types';
 import { Modal } from './modal';
 import { CardArt } from './card-art';
-import { foilStyleFor } from '@/lib/foil';
+import { foilStyleFor, foilStyleLabels } from '@/lib/foil';
 
 export function CardDetailModal({
   card,
@@ -66,7 +66,8 @@ export function CardDetailModal({
               onClick={() => setHolo((value) => !value)}
               aria-pressed={holo}
             >
-              <Sparkles size={16} /> Efecto holo {holo ? 'activado' : 'desactivado'}
+              <Sparkles size={16} /> {foilStyleLabels[foilStyleFor(detail) ?? 'standard']}{' '}
+              {holo ? 'activado' : 'desactivado'}
             </button>
           )}
         </div>

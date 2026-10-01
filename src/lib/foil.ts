@@ -2,6 +2,14 @@ import type { CardDetail } from './types';
 
 export type FoilStyle = 'standard' | 'illustration' | 'special' | 'gold' | 'prismatic';
 
+export const foilStyleLabels: Record<FoilStyle, string> = {
+  standard: 'Holo clásico',
+  illustration: 'Ilustración',
+  special: 'Ilustración especial',
+  gold: 'Dorado',
+  prismatic: 'Prismático',
+};
+
 /** Keep finish selection in one place so the binder and detail view agree. */
 export function foilStyleFor(card?: Pick<CardDetail, 'rarity' | 'variants'>): FoilStyle | null {
   if (!card?.variants?.holo) return null;

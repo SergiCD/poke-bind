@@ -347,15 +347,29 @@
   background-position: var(--pointer-x, 38%) var(--pointer-y, 32%);
 }
 .foil-illustration .holo-shine {
-  filter: saturate(1.65) contrast(1.04);
+  filter: saturate(1.7) contrast(1.12);
+  mix-blend-mode: screen;
   mask-image: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%), #000 0%, #0009 38%, transparent 78%);
 }
 .foil-illustration .holo-shine::after {
-  background: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%), #fff9 0%, #ffbde155 24%, #9ae7ff66 49%, transparent 75%);
+  background: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%), #fff9 0%, #ffbde188 24%, #9ae7ff99 49%, transparent 75%);
+  mix-blend-mode: screen;
+}
+.foil-special .holo-shine {
+  filter: saturate(1.9) contrast(1.16);
+  mix-blend-mode: color-dodge;
+  mask-image: linear-gradient(122deg, transparent 4%, #0008 25%, #000 48%, #0009 68%, transparent 94%);
+  opacity: .4;
+}
+.foil-special .holo-shine::before {
+  background-image: url('/textures/foil-grain.svg'), repeating-linear-gradient(43deg, transparent 0 8px, #fff9 10px 11px, transparent 14px 23px);
+  background-size: 88px 88px, 100% 100%;
+  opacity: .85;
 }
 .foil-special .holo-shine::after {
-  background: conic-gradient(from 32deg at var(--pointer-x, 38%) var(--pointer-y, 32%), #ffa9d977, #9ceaff88, #fff4aa88, #c6adff77, #ffa9d977);
-  mask-image: repeating-linear-gradient(138deg, #000 0 9px, #0006 12px 14px, transparent 17px 24px);
+  background: conic-gradient(from 32deg at var(--pointer-x, 38%) var(--pointer-y, 32%), #ffa9d9bb, #9ceaffbb, #fff4aabb, #c6adffbb, #ffa9d9bb);
+  mask-image: repeating-linear-gradient(138deg, #000 0 14px, #0006 18px 20px, transparent 25px 34px);
+  mix-blend-mode: screen;
 }
 .foil-gold .holo-shine {
   filter: sepia(.5) saturate(2.1) contrast(1.1);
@@ -373,6 +387,10 @@
 .holo:hover .holo-shine,
 .holo:active .holo-shine {
   opacity: 0.36;
+}
+.holo.foil-special:hover .holo-shine,
+.holo.foil-special:active .holo-shine {
+  opacity: .62;
 }
 .binder-spine {
   position: absolute;

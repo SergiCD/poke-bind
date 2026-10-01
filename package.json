@@ -12,7 +12,8 @@
     "catalog:official": "node scripts/import-official.mjs",
     "format": "prettier --write .",
     "catalog:galleries": "node scripts/import-galleries.mjs",
-    "catalog:audit": "node scripts/audit-catalog.mjs"
+    "catalog:audit": "node scripts/audit-catalog.mjs",
+    "catalog:rarities": "node scripts/sync-rarities.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.117.2",

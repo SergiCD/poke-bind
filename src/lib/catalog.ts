@@ -2,12 +2,14 @@ import 'server-only';
 import snapshot from '@/data/catalog.json';
 import official from '@/data/official-cards.json';
 import officialLogos from '@/data/official-set-logos.json';
+import rarityIndex from '@/data/rarity-index.json';
 import type { CardBrief, CardDetail, Expansion } from './types';
 
 // The full snapshot stays on the server; clients only receive the requested page.
 export const officialById = new Map(official.cards.map((card) => [card.id, card]));
 export const cards: CardBrief[] = snapshot.cards.map((card) => ({
   ...card,
+  rarity: (rarityIndex.cards as Record<string, string>)[card.id],
   ...(officialById.get(card.id) ?? {}),
 }));
 // Count after applying official corrections, so expansion badges match the cards shown.

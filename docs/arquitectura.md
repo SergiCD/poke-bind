@@ -43,6 +43,13 @@ El esquema SQL valida la estructura superior y el tamaño. Zod valida la estruct
 
 Los importadores se ejecutan fuera de las peticiones web. El archivo de respaldo se reemplaza mediante renombrado atómico al terminar la descarga. Los datos oficiales están en un archivo separado para que una actualización de TCGdex no los sobrescriba.
 
+`npm run catalog:rarities` crea `src/data/rarity-index.json` a partir del índice español
+de TCGdex. Consulta cada rareza con coincidencia exacta (`eq:`), evita mezclar
+«Holo Rara V» con «Holo Rara VMAX» y conserva el resultado de forma atómica.
+El filtro del catálogo usa ese índice local; las opciones dependen de la expansión
+seleccionada y muestran cuántas cartas tiene cada rareza. Algunas etiquetas del
+proveedor se traducen solo en la interfaz, sin cambiar el valor de origen.
+
 ## Accesibilidad y móvil
 
 Los modales usan `dialog` nativo con foco contenido, cierre con Escape y devolución del foco. La reordenación por dos pulsaciones funciona sin arrastrar. En móvil se muestra una página cada vez y navegación inferior; en escritorio, dos páginas. El efecto holo respeta `prefers-reduced-motion` y se puede desactivar en la ficha.

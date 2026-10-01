@@ -5,6 +5,7 @@ import type { CardBrief, CardDetail } from '@/lib/types';
 import { Modal } from './modal';
 import { CardArt } from './card-art';
 import { foilStyleFor, foilStyleLabels } from '@/lib/foil';
+import { rarityLabel } from '@/lib/rarity-filter';
 
 export function CardDetailModal({
   card,
@@ -95,7 +96,7 @@ export function CardDetailModal({
                 {detail.rarity && (
                   <span className="pill lavender">
                     <Sparkles size={13} />
-                    {detail.rarity}
+                    {rarityLabel(detail.rarity)}
                   </span>
                 )}
                 {detail.hp && <span className="pill mint">{detail.hp} PS</span>}

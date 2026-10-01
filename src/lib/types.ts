@@ -6,6 +6,7 @@ export interface CardBrief {
   setId: string;
   setName: string;
   sourceUrl?: string;
+  rarity?: string;
 }
 
 export interface CardDetail {

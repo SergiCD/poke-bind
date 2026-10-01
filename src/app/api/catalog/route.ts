@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cards, cardById, fold, sets } from '@/lib/catalog';
 import { z } from 'zod';
+import { matchesRarity, rarityOptions } from '@/lib/rarity-filter';
 
 const querySchema = z.object({
   q: z.string().max(100).default(''),
   set: z.string().max(80).default(''),
   page: z.number().int().min(1).default(1),
   promo: z.boolean().default(false),
+  rarity: z.string().max(100).default(''),
   ids: z.array(z.string().max(80)).max(50000).optional(),
 });
 
@@ -19,17 +21,22 @@ export async function POST(request: Request) {
   }
   const parsed = querySchema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ error: 'Consulta no válida.' }, { status: 400 });
-  const { q, set, page, promo, ids } = parsed.data;
+  const { q, set, page, promo, rarity, ids } = parsed.data;
   const scope = ids ? new Set(ids) : null;
   const promos = new Set(sets.filter((item) => item.promo).map((item) => item.id));
-  const filtered = cards.filter(
+  const eligible = cards.filter(
     (card) =>
       (!scope || scope.has(card.id)) &&
       (!set || card.setId === set) &&
-      (!promo || promos.has(card.setId)) &&
+      (!promo || promos.has(card.setId)),
+  );
+  const filtered = eligible.filter(
+    (card) =>
+      matchesRarity(card, rarity) &&
       (!q || fold(`${card.name} ${card.localId} ${card.setName}`).includes(fold(q))),
   );
   return NextResponse.json({
+    ...rarityOptions(eligible),
     cards: filtered.slice((page - 1) * 48, page * 48),
     total: filtered.length,
     page,
@@ -49,10 +56,12 @@ export function GET(request: NextRequest) {
   }
   const q = fold((params.get('q') ?? '').slice(0, 100));
   const set = params.get('set');
+  const rarity = params.get('rarity') ?? '';
   const promos = new Set(sets.filter((item) => item.promo).map((item) => item.id));
   const filtered = cards.filter(
     (card) =>
       (!set || card.setId === set) &&
+      matchesRarity(card, rarity) &&
       (params.get('promo') !== 'true' || promos.has(card.setId)) &&
       (!q || fold(`${card.name} ${card.localId} ${card.setName}`).includes(q)),
   );

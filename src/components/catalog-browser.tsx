@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Check, ChevronLeft, ChevronRight, Heart, Search } from 'lucide-react';
 import type { CardBrief, Expansion } from '@/lib/types';
 import { CardArt } from './card-art';
+import { rarityLabel } from '@/lib/rarity-filter';
 
 interface Props {
   sets: Expansion[];
@@ -27,11 +28,20 @@ export function CatalogBrowser({
   const [q, setQ] = useState('');
   const [set, setSet] = useState(initialSet);
   const [promo, setPromo] = useState(false);
+  const [rarity, setRarity] = useState('');
   const [page, setPage] = useState(1);
-  const [result, setResult] = useState<{ cards: CardBrief[]; total: number; pages: number }>({
+  const [result, setResult] = useState<{
+    cards: CardBrief[];
+    total: number;
+    pages: number;
+    rarities: { name: string; count: number }[];
+    unknown: number;
+  }>({
     cards: [],
     total: 0,
     pages: 0,
+    rarities: [],
+    unknown: 0,
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -46,7 +56,7 @@ export function CatalogBrowser({
         const response = await fetch('/api/catalog', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ q, set, promo, page, ids }),
+          body: JSON.stringify({ q, set, promo, rarity, page, ids }),
           signal: controller.signal,
         });
         if (!response.ok) throw new Error();
@@ -66,7 +76,7 @@ export function CatalogBrowser({
       clearTimeout(timer);
       controller.abort();
     };
-  }, [q, set, promo, page, ids, attempt]);
+  }, [q, set, promo, rarity, page, ids, attempt]);
   return (
     <div className="catalog-browser">
       <div className="catalog-filters">
@@ -89,6 +99,7 @@ export function CatalogBrowser({
             value={set}
             onChange={(event) => {
               setSet(event.target.value);
+              setRarity('');
               setPage(1);
             }}
           >
@@ -101,12 +112,29 @@ export function CatalogBrowser({
             ))}
           </select>
         )}
+        <select
+          aria-label="Filtrar por rareza"
+          value={rarity}
+          onChange={(event) => {
+            setRarity(event.target.value);
+            setPage(1);
+          }}
+        >
+          <option value="">Todas las rarezas</option>
+          {result.rarities.map(({ name, count }) => (
+            <option key={name} value={name}>{rarityLabel(name)} · {count}</option>
+          ))}
+          {result.unknown > 0 && (
+            <option value="__unknown__">Sin clasificar · {result.unknown}</option>
+          )}
+        </select>
         <label className="check-filter">
           <input
             type="checkbox"
             checked={promo}
             onChange={(event) => {
               setPromo(event.target.checked);
+              setRarity('');
               setPage(1);
             }}
           />
@@ -160,6 +188,7 @@ export function CatalogBrowser({
                 <span>
                   {card.setName} · {card.localId}
                 </span>
+                {card.rarity && <span className="catalog-rarity">{rarityLabel(card.rarity)}</span>}
               </button>
             ))}
           </div>

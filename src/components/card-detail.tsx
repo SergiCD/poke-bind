@@ -4,7 +4,7 @@ import { Check, Heart, Plus, Sparkles, Trash2 } from 'lucide-react';
 import type { CardBrief, CardDetail } from '@/lib/types';
 import { Modal } from './modal';
 import { CardArt } from './card-art';
-import { foilStyleFor, foilStyleLabels } from '@/lib/foil';
+import { cardFinishFor } from '@/lib/foil';
 import { rarityLabel } from '@/lib/rarity-filter';
 
 export function CardDetailModal({
@@ -50,7 +50,10 @@ export function CardDetailModal({
     return () => controller.abort();
   }, [card.id, initial, attempt]);
   const [holo, setHolo] = useState(true);
-  const foilStyle = foilStyleFor(detail);
+  const finish = cardFinishFor({
+    rarity: detail?.rarity ?? card.rarity,
+    variants: detail?.variants,
+  });
   return (
     <Modal title="Una carta, una historia" onClose={onClose} wide>
       <div className="card-detail">
@@ -60,17 +63,15 @@ export function CardDetailModal({
             name={card.name}
             large
             tilt
-            holo={holo && !!foilStyle}
-            foilStyle={foilStyle ?? 'standard'}
+            finish={holo ? finish : { ...finish, holo: false }}
           />
-          {foilStyle && (
+          {finish.holo && (
             <button
               className="text-button"
               onClick={() => setHolo((value) => !value)}
               aria-pressed={holo}
             >
-              <Sparkles size={16} /> {foilStyleLabels[foilStyle]}{' '}
-              {holo ? 'activado' : 'desactivado'}
+              <Sparkles size={16} /> Reflejo {holo ? 'activado' : 'desactivado'}
             </button>
           )}
         </div>

@@ -58,20 +58,20 @@ Las imágenes son externas y pueden fallar. En ese caso la carta sigue siendo id
 
 ## Reflejo holo
 
-`foilStyleFor` en `src/lib/foil.ts` elige cinco acabados a partir de la rareza y
-`variants.holo`: normal (líneas plateadas), ilustración (luz difusa), ilustración
-especial/alternativa (rayos de color), dorada (bandas cálidas) y prismática
-(microtextura y arcoíris). Una rareza específica permite mostrar su acabado si
-la ficha oficial omite `variants`; una variante `holo: false` siempre lo desactiva.
-`CardArt` reutiliza la imagen de la carta como capa de color con `color-dodge`.
-Una máscara radial sigue el puntero y revela el relieve de la ilustración; grano SVG
-procedural y patrones CSS aportan textura. No lee píxeles en canvas ni requiere
-CORS en el proveedor. Los acabados se ajustan en `binder.css`.
-El reflejo permanece suave en pantallas táctiles, sin capturar gestos de desplazamiento.
-Se desactiva con el botón de la ficha o con `prefers-reduced-motion`.
-La ficha añade inclinación 3D al mover el puntero; el binder mantiene las cartas
-planas para facilitar su manipulación.
-Es una interpretación visual, no una máscara exacta del acabado físico de cada impresión.
+`cardFinishFor` en `src/lib/foil.ts` asigna a cada una de las 29 rarezas del índice
+un perfil propio (familia, dos tonos, ángulo y densidad). Las ocho familias de
+`foil.css` producen haces clásicos, diagonales, ilustración difusa, ilustración
+especial, dorado, prismático, plata y reflejo simple. Una variante `holo: false`
+siempre prevalece; las comunes y poco comunes sin variante holo reciben solo
+un destello al examinarse. No se inventa un holograma para una impresión normal.
+
+`CardArt` reutiliza la imagen como capa de color y coloca encima grano SVG y
+gradientes CSS controlados por el puntero. No lee píxeles ni requiere CORS. La
+ficha anima la vuelta de la carta al abrirse y responde a la inclinación del
+puntero; el binder conserva las cartas planas. En pantallas táctiles no captura
+los gestos de desplazamiento. `prefers-reduced-motion` elimina giro y reflejos.
+Los patrones son una interpretación visual creada para PokeBind, inspirada en
+[Pokémon Cards CSS](https://poke-holo.simey.me/), sin importar su código ni assets.
 
 ## Navegación de expansiones
 

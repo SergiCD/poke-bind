@@ -1,23 +1,20 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { foilStyleFor } from '../src/lib/foil';
+import rarityIndex from '../src/data/rarity-index.json';
+import { cardFinishFor, supportedRarities } from '../src/lib/foil';
 
-test('clasifica las cinco familias holo por rareza', () => {
-  const variants = { holo: true };
-  assert.equal(foilStyleFor({ rarity: 'Rara', variants }), 'standard');
-  assert.equal(foilStyleFor({ rarity: 'Rara Ilustración', variants }), 'illustration');
-  assert.equal(foilStyleFor({ rarity: 'Rara Ilustración Especial', variants }), 'special');
-  assert.equal(foilStyleFor({ rarity: 'Mega Híper Rara', variants }), 'gold');
-  assert.equal(foilStyleFor({ rarity: 'Rara AS TÁCTICO', variants }), 'prismatic');
+test('las 29 rarezas catalogadas tienen perfiles visuales distintos', () => {
+  const indexed = [...new Set(Object.values(rarityIndex.cards))];
+  assert.equal(indexed.length, 29);
+  assert.deepEqual([...supportedRarities].sort(), indexed.sort());
+  const finishes = indexed.map((rarity) => cardFinishFor({ rarity }));
+  assert.equal(new Set(finishes.map(({ family, hueA, hueB, angle, pitch }) =>
+    `${family}/${hueA}/${hueB}/${angle}/${pitch}`)).size, indexed.length);
 });
 
-test('no añade foil a una carta sin variante holo', () => {
-  assert.equal(foilStyleFor({ rarity: 'Rara Ilustración Especial', variants: { holo: false } }), null);
-  assert.equal(foilStyleFor(undefined), null);
-});
-
-test('usa rareza conocida si la fuente oficial omite variantes', () => {
-  assert.equal(foilStyleFor({ rarity: 'Rara Ilustración Especial' }), 'special');
-  assert.equal(foilStyleFor({ rarity: 'Rara Ilustración' }), 'illustration');
-  assert.equal(foilStyleFor({ rarity: 'Común' }), null);
+test('las variantes explícitas prevalecen sobre la rareza', () => {
+  assert.equal(cardFinishFor({ rarity: 'Rara Ilustración Especial' }).holo, true);
+  assert.equal(cardFinishFor({ rarity: 'Rara Ilustración Especial', variants: { holo: false } }).holo, false);
+  assert.equal(cardFinishFor({ rarity: 'Común' }).holo, false);
+  assert.equal(cardFinishFor({ rarity: 'Común', variants: { holo: true } }).holo, true);
 });

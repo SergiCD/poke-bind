@@ -265,19 +265,6 @@
   height: 100%;
   object-fit: contain;
 }
-.detail-art .tilt-card {
-  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
-  transform-style: preserve-3d;
-  transition: transform 180ms ease-out;
-  will-change: transform;
-}
-.detail-art .holo-shine {
-  opacity: .48;
-}
-.detail-art .holo:hover .holo-shine,
-.detail-art .holo:active .holo-shine {
-  opacity: .72;
-}
 .owned-mark {
   position: absolute;
   top: 6px;
@@ -302,115 +289,6 @@
   border-radius: 5px;
   display: flex;
   z-index: 2;
-}
-/* Reuse the artwork as the foil color layer: reflections follow its actual
-   colors and detail, without canvas/CORS reads or an extra image service. */
-.holo-shine {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: var(--card-image);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(1.35) contrast(1.08);
-  mix-blend-mode: color-dodge;
-  mask-image: radial-gradient(
-    ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%),
-    #000 0%,
-    #0008 24%,
-    transparent 65%
-  );
-  opacity: 0.18;
-  transition: opacity 0.25s;
-}
-.holo-shine::before,
-.holo-shine::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-}
-/* Fine metallic grooves and irregular grain avoid a flat rainbow overlay. */
-.holo-shine::before {
-  background-image:
-    url('/textures/foil-grain.svg'),
-    repeating-linear-gradient(118deg, #fff8 0 0.5px, #0008 1px 2px, transparent 3px 5px);
-  background-size:
-    128px 128px,
-    100% 100%;
-  mix-blend-mode: soft-light;
-  opacity: 0.65;
-}
-.holo-shine::after {
-  background: linear-gradient(
-    120deg,
-    transparent 25%,
-    #c1efff66 40%,
-    #fff8 47%,
-    #ffe5bc55 54%,
-    transparent 68%
-  );
-  background-size: 220% 220%;
-  background-position: var(--pointer-x, 38%) var(--pointer-y, 32%);
-  mix-blend-mode: soft-light;
-}
-/* Five finishes share the artwork-based color layer, but differ in texture and light. */
-.foil-standard .holo-shine::after {
-  background: repeating-linear-gradient(108deg, transparent 0 17px, #ebf9ff8a 19px 21px, transparent 25px 44px);
-  background-position: var(--pointer-x, 38%) var(--pointer-y, 32%);
-}
-.foil-illustration .holo-shine {
-  filter: saturate(1.7) contrast(1.12);
-  mix-blend-mode: screen;
-  mask-image: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%), #000 0%, #0009 38%, transparent 78%);
-}
-.foil-illustration .holo-shine::after {
-  background: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%), #fff9 0%, #ffbde188 24%, #9ae7ff99 49%, transparent 75%);
-  mix-blend-mode: screen;
-}
-.foil-special .holo-shine {
-  filter: saturate(1.9) contrast(1.16);
-  mix-blend-mode: color-dodge;
-  mask-image: linear-gradient(122deg, transparent 4%, #0008 25%, #000 48%, #0009 68%, transparent 94%);
-  opacity: .4;
-}
-.foil-special .holo-shine::before {
-  background-image: url('/textures/foil-grain.svg'), repeating-linear-gradient(43deg, transparent 0 8px, #fff9 10px 11px, transparent 14px 23px);
-  background-size: 88px 88px, 100% 100%;
-  opacity: .85;
-}
-.foil-special .holo-shine::after {
-  background: conic-gradient(from 32deg at var(--pointer-x, 38%) var(--pointer-y, 32%), #ffa9d9bb, #9ceaffbb, #fff4aabb, #c6adffbb, #ffa9d9bb);
-  mask-image: repeating-linear-gradient(138deg, #000 0 14px, #0006 18px 20px, transparent 25px 34px);
-  mix-blend-mode: screen;
-}
-.foil-gold .holo-shine {
-  filter: sepia(.5) saturate(2.1) contrast(1.1);
-}
-.foil-gold .holo-shine::after {
-  background: repeating-linear-gradient(116deg, #44200022 0 3px, #ffdd7699 5px 7px, #fff7cfbb 8px 9px, transparent 13px 24px);
-}
-.foil-prismatic .holo-shine::before {
-  background-image: url('/textures/foil-grain.svg'), radial-gradient(circle, #fff9 1px, transparent 1.5px);
-  background-size: 128px 128px, 7px 7px;
-}
-.foil-prismatic .holo-shine::after {
-  background: conic-gradient(from 0deg at var(--pointer-x, 38%) var(--pointer-y, 32%), #ff8ba777, #ffe29a88, #adf0c588, #94cfff88, #d9a7ff88, #ff8ba777);
-}
-.holo:hover .holo-shine,
-.holo:active .holo-shine {
-  opacity: 0.36;
-}
-.holo.foil-special:hover .holo-shine,
-.holo.foil-special:active .holo-shine {
-  opacity: .62;
-}
-.detail-art .foil-special .holo-shine {
-  opacity: .62;
-}
-.detail-art .foil-special:hover .holo-shine,
-.detail-art .foil-special:active .holo-shine {
-  opacity: .8;
 }
 .binder-spine {
   position: absolute;

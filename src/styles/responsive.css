@@ -458,7 +458,8 @@
     animation: none !important;
     scroll-behavior: auto !important;
   }
-  .holo-shine {
+  .holo-shine,
+  .card-glare {
     display: none;
   }
   .detail-art .tilt-card {

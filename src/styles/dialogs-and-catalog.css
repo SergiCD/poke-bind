@@ -265,12 +265,14 @@
   padding: 7px 16px 15px;
 }
 .detail-art {
+  width: min(100%, 340px);
   padding: 15px;
   background: #edf5ed;
   border-radius: 18px;
   align-self: start;
 }
 .detail-art .card-art {
+  width: 100%;
   height: auto;
   filter: drop-shadow(0 9px 9px #2c4e3c28);
 }

@@ -137,8 +137,15 @@ export function ExpansionExplorer({
                             : `${item.coverImage}/low.webp`)}
                       alt=""
                       loading="lazy"
+                      onLoad={(event) => {
+                        event.currentTarget.parentElement?.classList.toggle(
+                          'has-logo',
+                          event.currentTarget.classList.contains('expansion-logo'),
+                        );
+                      }}
                       onError={(event) => {
                         const image = event.currentTarget;
+                        image.parentElement?.classList.remove('has-logo');
                         if (item.coverImage && !image.classList.contains('expansion-cover-card')) {
                           image.className = 'expansion-cover-card';
                           image.src = /\.(png|webp|jpe?g)$/i.test(item.coverImage)

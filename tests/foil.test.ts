@@ -15,3 +15,9 @@ test('no añade foil a una carta sin variante holo', () => {
   assert.equal(foilStyleFor({ rarity: 'Rara Ilustración Especial', variants: { holo: false } }), null);
   assert.equal(foilStyleFor(undefined), null);
 });
+
+test('usa rareza conocida si la fuente oficial omite variantes', () => {
+  assert.equal(foilStyleFor({ rarity: 'Rara Ilustración Especial' }), 'special');
+  assert.equal(foilStyleFor({ rarity: 'Rara Ilustración' }), 'illustration');
+  assert.equal(foilStyleFor({ rarity: 'Común' }), null);
+});

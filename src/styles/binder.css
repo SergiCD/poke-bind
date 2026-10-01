@@ -265,6 +265,19 @@
   height: 100%;
   object-fit: contain;
 }
+.detail-art .tilt-card {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 180ms ease-out;
+  will-change: transform;
+}
+.detail-art .holo-shine {
+  opacity: .48;
+}
+.detail-art .holo:hover .holo-shine,
+.detail-art .holo:active .holo-shine {
+  opacity: .72;
+}
 .owned-mark {
   position: absolute;
   top: 6px;
@@ -391,6 +404,13 @@
 .holo.foil-special:hover .holo-shine,
 .holo.foil-special:active .holo-shine {
   opacity: .62;
+}
+.detail-art .foil-special .holo-shine {
+  opacity: .62;
+}
+.detail-art .foil-special:hover .holo-shine,
+.detail-art .foil-special:active .holo-shine {
+  opacity: .8;
 }
 .binder-spine {
   position: absolute;

@@ -157,7 +157,7 @@ export function BinderView({
                           <CardArt
                             image={card.image}
                             name={card.name}
-                            holo={!!detail?.variants?.holo}
+                            holo={!!foilStyleFor(detail)}
                             foilStyle={foilStyleFor(detail) ?? 'standard'}
                           />
                           {owned.includes(card.id) && (

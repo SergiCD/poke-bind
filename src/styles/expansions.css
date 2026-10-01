@@ -123,6 +123,9 @@
   border-radius: 5px;
   box-shadow: 0 5px 14px #23384645;
 }
+.expansion-tile-art.has-logo > span {
+  visibility: hidden;
+}
 .expansion-tile-art:has(.expansion-cover-card) > span {
   max-width: calc(100% - 78px);
   margin-right: auto;

@@ -54,13 +54,16 @@ Las imágenes son externas y pueden fallar. En ese caso la carta sigue siendo id
 `foilStyleFor` en `src/lib/foil.ts` elige cinco acabados a partir de la rareza y
 `variants.holo`: normal (líneas plateadas), ilustración (luz difusa), ilustración
 especial/alternativa (rayos de color), dorada (bandas cálidas) y prismática
-(microtextura y arcoíris). Si no hay variante holo, no se aplica el efecto.
+(microtextura y arcoíris). Una rareza específica permite mostrar su acabado si
+la ficha oficial omite `variants`; una variante `holo: false` siempre lo desactiva.
 `CardArt` reutiliza la imagen de la carta como capa de color con `color-dodge`.
 Una máscara radial sigue el puntero y revela el relieve de la ilustración; grano SVG
 procedural y patrones CSS aportan textura. No lee píxeles en canvas ni requiere
 CORS en el proveedor. Los acabados se ajustan en `binder.css`.
 El reflejo permanece suave en pantallas táctiles, sin capturar gestos de desplazamiento.
 Se desactiva con el botón de la ficha o con `prefers-reduced-motion`.
+La ficha añade inclinación 3D al mover el puntero; el binder mantiene las cartas
+planas para facilitar su manipulación.
 Es una interpretación visual, no una máscara exacta del acabado físico de cada impresión.
 
 ## Navegación de expansiones

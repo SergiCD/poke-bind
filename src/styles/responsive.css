@@ -461,6 +461,9 @@
   .holo-shine {
     display: none;
   }
+  .detail-art .tilt-card {
+    transform: none;
+  }
 }
 
 /* Keep navigation and form labels readable, including on narrow phones. */

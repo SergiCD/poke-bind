@@ -49,6 +49,7 @@ export function CardDetailModal({
     return () => controller.abort();
   }, [card.id, initial, attempt]);
   const [holo, setHolo] = useState(true);
+  const foilStyle = foilStyleFor(detail);
   return (
     <Modal title="Una carta, una historia" onClose={onClose} wide>
       <div className="card-detail">
@@ -57,16 +58,17 @@ export function CardDetailModal({
             image={card.image}
             name={card.name}
             large
-            holo={holo && !!detail?.variants?.holo}
-            foilStyle={foilStyleFor(detail) ?? 'standard'}
+            tilt
+            holo={holo && !!foilStyle}
+            foilStyle={foilStyle ?? 'standard'}
           />
-          {detail?.variants?.holo && (
+          {foilStyle && (
             <button
               className="text-button"
               onClick={() => setHolo((value) => !value)}
               aria-pressed={holo}
             >
-              <Sparkles size={16} /> {foilStyleLabels[foilStyleFor(detail) ?? 'standard']}{' '}
+              <Sparkles size={16} /> {foilStyleLabels[foilStyle]}{' '}
               {holo ? 'activado' : 'desactivado'}
             </button>
           )}

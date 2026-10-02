@@ -108,14 +108,34 @@
   background: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%), #fffa,
     hsl(var(--foil-a) 96% 78% / .72) 28%, hsl(var(--foil-b) 93% 76% / .65) 52%, transparent 82%);
 }
+/* Special illustrations carry text over the art. Keep the color wash diffuse;
+   hard repeating masks obscure both the artwork and printed card details. */
 .finish-special .holo-shine {
-  filter: saturate(1.8) contrast(1.2);
-  mask-image: repeating-linear-gradient(var(--foil-angle), #000 0 var(--foil-pitch), #0008 calc(var(--foil-pitch) + 2px), transparent calc(var(--foil-pitch) + 8px) calc(var(--foil-pitch) + 16px));
+  filter: saturate(1.25) contrast(1.03);
+  mix-blend-mode: soft-light;
+  mask-image: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%),
+    #000 0 12%, #000a 38%, transparent 72%);
+}
+.finish-special .holo-shine::before {
+  background-image: url('/textures/foil-grain.svg'),
+    repeating-linear-gradient(var(--foil-angle), transparent 0 12px, #fff3 13px 14px, transparent 15px 29px);
+  background-size: 112px 112px, 100% 100%;
+  opacity: .23;
+  mix-blend-mode: soft-light;
 }
 .finish-special .holo-shine::after {
-  background: conic-gradient(from var(--foil-angle) at var(--pointer-x, 38%) var(--pointer-y, 32%),
-    hsl(var(--foil-a) 98% 73% / .9), #fff9, hsl(var(--foil-b) 96% 70% / .87), #fff9, hsl(var(--foil-a) 98% 73% / .9));
+  background: radial-gradient(ellipse at var(--pointer-x, 38%) var(--pointer-y, 32%),
+    hsl(var(--foil-a) 88% 72% / .32),
+    hsl(var(--foil-b) 85% 76% / .24) 32%, transparent 69%);
+  mix-blend-mode: soft-light;
 }
+.finish-special .card-glare { opacity: .18; }
+.finish-special:hover .card-glare { opacity: .34; }
+.holo.finish-special:hover .holo-shine,
+.holo.finish-special:active .holo-shine { opacity: .33; }
+.detail-art .holo.finish-special .holo-shine { opacity: .27; }
+.detail-art .holo.finish-special:hover .holo-shine,
+.detail-art .holo.finish-special:active .holo-shine { opacity: .4; }
 .finish-gold .holo-shine {
   filter: sepia(.65) saturate(2.3) contrast(1.15);
   mix-blend-mode: screen;
